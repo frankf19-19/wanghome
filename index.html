@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://wangmiaotw.com/">
+<title>汪喵回家已搬家到 wangmiaotw.com</title>
+<meta property="og:title" content="汪喵回家 — 全台走失毛孩協尋平台">
+<meta property="og:description" content="汪喵回家已搬到新網址 wangmiaotw.com">
+<meta property="og:image" content="https://wangmiaotw.com/og.png">
+<meta property="og:url" content="https://wangmiaotw.com/">
+<script>
+/* 舊網址轉址：把這支手機在舊網址存的「管理代碼」等資料帶到新網址（只帶一次），然後轉過去 */
+(function(){var H='wangmiaotw.com',OLD='frankf19-19.github.io',MOVE=true,SBK='sb-nopyhfpaykkiieudvoko-auth-token',
+UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/,
+KEEP=function(k){return k==='wh_mine'||k==='wh_theme'||/^wh_(token|ftoken)_[0-9a-f-]{36}$/.test(k)||/^wh_draft[a-z_]{0,20}$/.test(k)};
+try{var h=location.hash;
+if(h.indexOf('#mig=')===0){
+  var p=h.slice(5),i=p.indexOf('&h='),d=i<0?p:p.slice(0,i),back=i<0?'':decodeURIComponent(p.slice(i+3));
+  history.replaceState(null,'',location.pathname+location.search+(/^#\/[\w\/?=&.%-]*$/.test(back)?back:'#/'));
+  if((document.referrer||'').indexOf('https://'+OLD+'/')===0){
+    var o=JSON.parse(decodeURIComponent(escape(atob(d.replace(/-/g,'+').replace(/_/g,'/')))));
+    for(var k in o){var v=o[k];if(!KEEP(k)||typeof v!=='string'||v.length>20000)continue;var cur=localStorage.getItem(k);
+      if(k==='wh_mine'){try{var b=JSON.parse(v).filter(function(x){return x&&UUID.test(x.id)&&(x.t==='case'||x.t==='found')}),a=[];
+        try{a=JSON.parse(cur||'[]')}catch(_){}var ids={};a.forEach(function(x){ids[x&&x.id]=1});
+        localStorage.setItem(k,JSON.stringify(a.concat(b.filter(function(x){return !ids[x.id]})).slice(0,20)))}catch(_){}}
+      else if(k==='wh_theme'){if(cur==null&&/^(auto|light|dark)$/.test(v))localStorage.setItem(k,v)}
+      else if(cur==null)localStorage.setItem(k,v);}
+  }
+}else if(MOVE&&location.hostname===OLD){
+  var to='https://'+H+'/'+location.search,o2={},n=0;
+  if(!localStorage.getItem('wh_migrated')){
+    for(var j=0;j<localStorage.length;j++){var k2=localStorage.key(j);if(KEEP(k2)){o2[k2]=localStorage.getItem(k2);n++}}
+    try{localStorage.setItem('wh_migrated','1')}catch(_){}
+  }
+  location.replace(to+(n?'#mig='+btoa(unescape(encodeURIComponent(JSON.stringify(o2)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')+'&h='+encodeURIComponent(location.hash):location.hash));
+}}catch(e){}})();
+</script>
+<style>body{font-family:system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;text-align:center;padding:48px 16px;color:#333;background:#FFF7EE}a{color:#c8201f;font-weight:700;font-size:20px}</style>
+</head><body>
+<h1>汪喵回家搬家了 🐾</h1>
+<p>新網址：<a id="go" href="https://wangmiaotw.com/">wangmiaotw.com</a></p>
+<p>正在幫你轉過去…沒有自動轉的話，請點上面的連結。</p>
+<script>document.getElementById('go').href='https://wangmiaotw.com/'+location.search+location.hash;</script>
+<noscript><meta http-equiv="refresh" content="0;url=https://wangmiaotw.com/"></noscript>
+</body></html>
